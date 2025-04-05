@@ -7,7 +7,7 @@ export default function Home() {
 				<header className="flex justify-center items-center p-5">
 					<h1 className="text-4xl font-bold">Create Next App</h1>
 				</header>
-				<section classname="">
+				<section className="">
 					<h2 className="text-xl"> Creando el proyecto</h2>
 					<p className="">
 						Para empezar vamos a necesitar instalar Node.js que viene con npm,

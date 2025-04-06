@@ -116,7 +116,33 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  .terminal {
+    @apply bg-muted;
+    font-family: var(--geist-mono);
+    font-size: .9rem;
+    padding: .3rem .5rem;
+
+    @apply rounded-sm;
+
+    &::before {
+      content: ">";
+      color: var(--muted-foreground);
+
+
+      margin-right: .5rem;
+    }
+  }
+
+  .prompt {
+    &::after {
+      content: "> ";
+
+
+    }
   }
 }

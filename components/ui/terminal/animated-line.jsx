@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { useEffect, useRef, useState, use } from "react";
 import { TerminalContext } from "@/components/terminal-provider";
 const AnimatedLine = ({
-	children,
+	text,
 	className,
 	duration = 60,
 	delay = 0,
@@ -15,10 +15,6 @@ const AnimatedLine = ({
 	as: Component = "span",
 	...props
 }) => {
-	if (typeof children !== "string") {
-		throw new Error("AnimatedLine: children must be a string. Received:");
-	}
-
 	const MotionComponent = motion.create(Component, {
 		forwardMotionProps: true,
 	});
@@ -44,8 +40,8 @@ const AnimatedLine = ({
 
 		let i = 0;
 		const typingEffect = setInterval(() => {
-			if (i < children.length) {
-				const nextChar = children[i];
+			if (i < text.length) {
+				const nextChar = text[i];
 				setDisplayedText((prev) => prev + nextChar);
 				i++;
 			} else {
@@ -57,7 +53,7 @@ const AnimatedLine = ({
 		return () => {
 			clearInterval(typingEffect);
 		};
-	}, [children, duration, started]);
+	}, [text, duration, started]);
 
 	// Render the characters - one by one without fade animation
 	// We'll add new characters instead of re-rendering everything

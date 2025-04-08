@@ -17,9 +17,6 @@ export const TerminalProvider = ({ children, defaultvalues }) => {
 
 		if (currentLine >= 1) {
 			const actLine = values.find((item) => item.order === currentLine);
-			console.log(currentLine);
-			console.log(actLine.order);
-			console.log(actLine);
 
 			const newValues = values.map((item) =>
 				item.order === currentLine ? { ...item, complete: true } : item

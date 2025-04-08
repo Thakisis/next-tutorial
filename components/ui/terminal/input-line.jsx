@@ -1,6 +1,7 @@
 import { use } from "react";
 import { TerminalContext } from "@/components/terminal-provider";
-function InputLine({ children, name }) {
+import StringText from "./StringText";
+function InputLine({ text, name }) {
 	const { values, setValue } = use(TerminalContext);
 
 	const { complete, selected, placeholder } = values?.find(
@@ -24,7 +25,7 @@ function InputLine({ children, name }) {
 	return (
 		<div className="flex gap-2">
 			<span className="text-green-500 w-2">{complete ? "✔" : "?"}</span>
-			{children}
+			<StringText text={text} />
 			<span className="text-gray-500 ">{complete ? "..." : "»"}</span>
 			{input}
 		</div>
